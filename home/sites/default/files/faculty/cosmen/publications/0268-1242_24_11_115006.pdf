@@ -1,0 +1,1040 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>IOPscience::.. Access Options</title>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="dc.Title" content="IOP Publishing - IOPscience" />	
+<meta name="Title" content="IOP Publishing - IOPscience" />
+<meta name="dc.Description" content="IOPscience is a unique platform for IOP-hosted journal content providing site-wide electronic access to more than 130 years of leading scientific research, and incorporates some of the most innovative technologies to enhance your user-experience." />
+<meta name="Description" content="IOPscience is a unique platform for IOP-hosted journal content providing site-wide electronic access to more than 130 years of leading scientific research, and incorporates some of the most innovative technologies to enhance your user-experience." />
+
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/6.5/iewin.css" />
+<![endif]-->
+<!--[if gte IE 7]>
+	<link rel="stylesheet" type="text/css" href="/css/6.5/ie7win.css" />
+<![endif]-->
+
+<link rel="Stylesheet" type="text/css" href="/css/6.5/custom-theme/jquery-ui-1.7.2.custom.css" />
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/6.5/all-min.css" media="screen" /> 
+
+
+
+
+<!--[if IE]>
+	 <link href="/css/6.5/ie.css" rel="stylesheet" type="text/css"></link>
+<![endif]-->  
+
+<link rel="stylesheet" type="text/css" href="/css/6.5/lib/jquery.autocomplete.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/css/6.5/lib/jquery.pnotify.default.css" />
+            
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+	
+	
+		
+	
+	
+	
+
+
+	</head>
+	
+	<body>
+		<div id="wrapper" class="subPage">
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- REFRESH: Hide the accessibility until the end -->
+<div class="accessibility" style="display: none;">
+	<p><strong>Accessibility Links</strong></p>
+	<ul>
+		<li><a href="#contentCol">Skip to content</a></li>
+		<li><a href="/search#contentCol">Skip to search IOPscience</a></li>
+		<li><a href="/journals#contentCol">Skip to Journals list</a></li>
+		<li><a href="/page/accessibility#contentCol">Accessibility help</a></li>
+	</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="hdr" >
+
+	
+        
+        
+	    <ul id="topTools">
+	    
+	        <li class="ttH1">
+	        	<h1>
+	        		<a href="/">IOPscience</a>
+	        	</h1>
+	        </li>
+		
+	      	
+		      	
+		      	
+					
+					<li><a id="login" class="white show_dialog" data-dialog-id="login_dialog" data-height-em="28" title="Login" href="https://ticket.iop.org/login?return=http%3A%2F%2Fiopscience.iop.org%2F0268-1242%2F24%2F11%2F115006%2Fpdf%2F0268-1242_24_11_115006.pdf">Login</a></li>
+					<li><a href="https://ticket.iop.org/account?return=http%3A%2F%2Fiopscience.iop.org%2F0268-1242%2F24%2F11%2F115006%2Fpdf%2F0268-1242_24_11_115006.pdf" class="white">Create account</a></li>
+				
+	      	  
+	        
+	        
+	        
+	        
+	      	
+	      	
+		      	
+		      	
+					<li class="last"><a href="https://ticket.iop.org/inst_login?return=http%3A%2F%2Fiopscience.iop.org%2F0268-1242%2F24%2F11%2F115006%2Fpdf%2F0268-1242_24_11_115006.pdf" class="white">Athens/Institutional login</a></li>
+		      	
+	      	 
+		  	
+		  
+		  	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+		  	
+		</ul>
+
+	
+	
+	<div class="headlines">
+		<h1>
+			
+	        	
+	        	
+	        		<a href="/">IOPscience</a>
+	        	
+	       	
+		</h1>
+		<h2></h2>
+	</div>
+
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div id="hdrSearch">
+     
+     <form class="quickSearchForm" id="headerQuickSearchForm" action="/search" method="get" accept-charset="iso-8859-1,utf-8">
+     
+         <input type="hidden" name="searchType" value="fullText" class="hidden" />
+		 <input class="textfield hdrSrchInput" name="fieldedquery" type="text" id="quicksearchqueryHead" class="w148" value="" />
+		 
+		 <div class="dropDowns">
+			 <select name="f" class="noMg">
+				
+					<option value="all" >All Fields</option>
+				
+					<option value="titleabs" selected="selected">Title/Abstract</option>
+				
+					<option value="author" >Author</option>
+				
+					<option value="affiliation" >Affiliation</option>
+				
+					<option value="fulltext" >Fulltext</option>
+				
+					<option value="pscmsccodes" >PACS/MSC Codes</option>
+				
+	         </select>
+	         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+	
+		
+		
+			
+			
+	  	
+	
+	
+	
+
+	
+		
+		
+		
+            
+	            
+	            
+	              	<select name="time" class="pullDown">
+	            
+            
+		
+	
+	
+		
+			
+			
+				
+					
+					
+						<option value="week">Last Week</option>
+					
+				
+			
+		
+	
+		
+			
+			
+				
+					
+					
+						<option value="month">Last Month</option>
+					
+				
+			
+		
+	
+		
+			
+			
+				
+					
+					
+						<option value="thisyear">This Year</option>
+					
+				
+			
+		
+	
+		
+			
+			
+				
+					
+					
+						<option value="lastyear">Last Year</option>
+					
+				
+			
+		
+	
+		
+			
+			
+				
+					
+					
+						<option value="threeyear">3 Years</option>
+					
+				
+			
+		
+	
+		
+			
+			
+				
+					
+					
+						<option value="fiveyear">5 Years</option>
+					
+				
+			
+		
+	
+		
+			
+			
+				
+					
+					
+						<option value="tenyear">10 Years</option>
+					
+				
+			
+		
+	
+		
+			
+			
+				
+					
+						<option value="all" selected="selected">All Dates</option>
+					
+					
+				
+			
+		
+	
+		
+			
+			
+				
+			
+		
+	
+	</select>
+
+
+             
+         </div>  
+
+       	 <input name="submit"
+       			type="submit"
+       			value="Quick search"
+       			class="button hdrPcWidth"
+       			id="quicksearch1"/>
+         	
+     </form>
+   
+ </div>
+ 
+	
+
+	
+	
+</div>
+
+
+<div id="nav">
+
+    <ul id="primary">
+    
+    	
+		
+		
+		    
+			    <li><a href="/" >Home</a></li>
+		    
+			    <li><a href="/search" >Search</a></li>
+		    
+			    <li><a href="/collections" >Collections</a></li>
+		    
+			    <li><a href="/journals" >Journals</a></li>
+		    
+			    <li><a href="/page/aboutioppublishing" >About</a></li>
+		    
+			    <li><a href="/contact" >Contact us</a></li>
+		    
+			    <li><a href="/myiopscience" >My IOPscience</a></li>
+		    
+        
+    
+    </ul>
+
+    <ul id="secondary">
+        <li>
+        	<a href="http://authors.iop.org/atom/usermgmt.nsf/AuthorServices">Authors</a>
+        </li>
+        <li><a href="http://atom.iop.org/atom/usermgmt.nsf/home">Referees</a></li>
+        <li><a href="http://librarians.iop.org">Librarians</a></li>
+    </ul>
+
+</div> 
+			
+				
+					<div id="page">
+						<div id="contentCol">
+						    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+						    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="mgBottom20">
+    <h2><a href="/0268-1242/24/11/115006">Sn-alloying as a means of increasing the optical absorption of Ge at the <I>C</I>- and <I>L</I>-telecommunication bands</a></h2>
+    <p>2009 <em>Semicond. Sci. Technol.</em> <b>24</b> 115006</p>
+    <p class="restrict">Access restricted: you will need to login or make a payment
+    to access the full text of this article.</p>
+</div>
+
+<div class="twoEqualCols accessPan">
+    <div class="eqLeft">
+        <div class="block">
+            <h2>Login options</h2>
+            <p>The computer you are using is not registered by an institution with a 
+            subscription to this article.  Please login below.</p>
+            <ul class="contentColList noMg">
+                
+                    <li>
+                        <a href="https://ticket.iop.org/login?return=http%3A%2F%2Fiopscience.iop.org%2F0268-1242%2F24%2F11%2F115006%2Fpdf%2F0268-1242_24_11_115006.pdf">Individual login</a>
+                        <a class="sm show_dialog" title="Individual access" href="">What's this?</a>
+                        <div class="dialog_content" style="display: none;">
+                            Individual access is available to:
+                            <ul class="list">
+                                
+                                    <li>IOP members (<a href="/page/members">Member Information</a>)</li>
+                                
+                                <li>Editorial board members of this journal</li>
+                                <li>Guests</li>
+                            </ul>
+                        </div>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://ticket.iop.org/inst_login?return=http%3A%2F%2Fiopscience.iop.org%2F0268-1242%2F24%2F11%2F115006%2Fpdf%2F0268-1242_24_11_115006.pdf">Institutional login via Athens/Shibboleth</a>
+                        <a class="sm show_dialog" title="Institutional access" href="">What's this?</a>
+                        <div class="dialog_content" style="display: none;">
+                        <p>Information about the <a href="http://cms.iopscience.iop.org/alfresco/download/direct/workspace/SpacesStore/323ac4e9-49a0-11dd-8cc4-2195a8176432/shibboleth-inst-login.pdf?guest=true">
+                        Athens Access Management System and Shibboleth</a> is available.</p>
+                        </div>
+                    </li>
+                
+            </ul>
+            <p>Find out more about <a href="http://librarians.iop.org/subs/">journal subscriptions at your site.</a></p>
+            <p>If you don't currently have access, please recommend this journal to your librarian or to a 
+            colleague. Institutional subscribers have access to the current volume, plus a 10-year 
+            backfile (where available).</p>
+            
+                
+                
+                    <p><a href="http://librarians.iop.org/order/0268-1242">Subscribe to this journal</a>
+                
+            
+        </div>
+    </div>
+    <div class="eqRight">
+        <div class="blueBox">
+            <h2>Purchase this article online</h2>
+            <p>
+                
+                    
+                        <span class="med">Sterling price (excl. VAT): £18.00</span>
+                        <br />
+                        <span class="med">Sterling price (incl. VAT): £21.15</span>
+                        <br />
+                        <span class="med">US Dollar price: $30.00</span>
+                    
+                    
+                
+                <br />
+                There are no additional delivery charges.
+            </p>
+            <p>By purchasing this article, you are accepting 
+                <a href="/page/terms-docdel">IOP's Terms and Conditions for Document Delivery</a>.
+            </p>
+            <p>If you would like to buy this article, but not online, please contact <a href="mailto:custserv@iop.org" class="bold">custserv@iop.org</a>.</p>
+            <p><a href="/cart/add?articleId=0268-1242/24/11/115006" class="button">Add to cart</a></p>
+        </div>
+    </div>
+</div>
+
+
+<script language="JavaScript" src="https://secure.wp3.rbsworldpay.com/wcc/logo?instId=38032"></script>
+			
+                            <br clear="all"/>
+					        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="tabs javascripted">
+    
+    	<div class="selectors">
+            
+			    <a href="?recenthistorytab=viewed" 
+				    class="on">Your last 10 viewed</a>
+            
+            
+            <br clear="all" />
+	    </div>
+        
+	        <div class="box1 tabContent"
+                >
+		        <ol class="resultsListing notBold">
+		            
+		              <li> 
+	                    <a href="/0268-1242/24/11/115006">Sn-alloying as a means of increasing the optical absorption of Ge at the <I>C</I>- and <I>L</I>-telecommunication bands</a> 
+	                    <p>Vijay R D'Costa <em>et al</em> 2009 <em>Semicond. Sci. Technol.</em> <b>24</b> 115006</p>
+		              </li>
+		            
+		        </ol>
+		    </div>
+		
+        
+  </div>
+
+
+						</div>
+						<div id="rightCol">
+		                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="block linkList""><h3>Menu</h3>
+        
+        <ul>
+            
+                
+                
+                
+                  
+                  
+                    
+                  
+                
+                                  
+    	            
+    	            
+    	              <li ><a href="/info/page/aboutiopscience.html" class="linkArrow normal">About IOPscience </a></li>
+    	            
+    	          
+            
+                
+                
+                
+                  
+                  
+                    
+                  
+                
+                                  
+    	            
+    	            
+    	              <li ><a href="/info/page/accessing.html" class="linkArrow normal">Accessing IOPscience </a></li>
+    	            
+    	          
+            
+                
+                
+                
+                  
+                  
+                    
+                  
+                
+                                  
+    	            
+    	            
+    	              <li ><a href="/info/page/FAQ" class="linkArrow normal">Your questions answered </a></li>
+    	            
+    	          
+            
+                
+                
+                
+                  
+                  
+                    
+                  
+                
+                                  
+    	            
+    	              <li> <a href="http://iopscience.iop.org/onlinetour" class="linkArrow normal link3">Online tour</a> </li>
+    	            
+    	            
+    	          
+            
+                
+                
+                
+                  
+                  
+                    
+                  
+                
+                                  
+    	            
+    	              <li> <a href="http://herald.iop.org/deliver/IOPscienceUserGuide.pdf" class="linkArrow normal link3">Download a user guide</a> </li>
+    	            
+    	            
+    	          
+            
+                
+                
+                
+                  
+                  
+                    
+                  
+                
+                                  
+    	            
+    	            
+    	              <li ><a href="/info/page/feedback" class="linkArrow normal">What our users say... </a></li>
+    	            
+    	          
+            
+                
+                
+                
+                  
+                  
+                    
+                  
+                
+                                  
+    	            
+    	            
+    	              <li ><a href="/info/page/latestnews" class="linkArrow normal">Latest news </a></li>
+    	            
+    	          
+            
+                
+                
+                
+                  
+                  
+                    
+                  
+                
+                                  
+    	            
+    	            
+    	              <li ><a href="/info/page/whatisthis.html" class="linkArrow normal">Image gallery </a></li>
+    	            
+    	          
+            
+                
+                
+                
+                  
+                  
+                    
+                  
+                
+                                  
+    	            
+    	            
+    	              <li ><a href="/info/page/aboutioppublishing.html" class="linkArrow normal">About IOP Publishing </a></li>
+    	            
+    	          
+            
+                
+                
+                
+                  
+                  
+                    
+                  
+                
+                                  
+    	            
+    	            
+    	              <li ><a href="/info/page/contactus.html" class="linkArrow normal">Contact us </a></li>
+    	            
+    	          
+            
+        </ul>
+    </div>
+    <div class="scale">
+        <div class="arrow">
+            423,325
+        </div>
+        <div class="scaleNo">Articles in <br /> IOPscience</div>
+    </div>
+    
+
+		                </div>
+		                <br clear="all"/>
+		            </div>
+	            
+	            
+			
+            <br clear="all"/>
+		    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer start -->
+
+<div id="footer"><!-- footer content module here -->
+	<ul>
+		<li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://iopscience.iop.org/page/copyright_notice">
+	
+	&copy; IOP Publishing 2010
+</a></li>
+		<li><a href="/faq" class="footer">help</a></li>
+		<li><a href="/site" class="footer">site map</a></li>
+		<li><a href="http://iopscience.iop.org/page/privacy_policy">privacy policy</a></li>
+<li><a href="http://iopscience.iop.org/page/terms">terms &amp; conditions</a></li>
+<li class="last"><a href="http://iopscience.iop.org/page/disclaimer">disclaimer</a></li>
+	</ul>
+</div>
+
+	
+	<div class="dialog_content no_button" id="login_dialog">
+		<form enctype="multipart/form-data" action="https://ticket.iop.org/login" method="post" class="loginPanel">
+			<p>
+				Please login to access our web services, or
+				<a href="https://ticket.iop.org/account?return=http%3A%2F%2Fiopscience.iop.org%2F0268-1242%2F24%2F11%2F115006%2Fpdf%2F0268-1242_24_11_115006.pdf">create an account</a>
+				if you don't yet have one. 
+				<br /><br />You must have cookies enabled in your web browser to be able to login.
+			</p>
+
+			<dl>
+				<dt><b>Username</b></dt>
+				<dd><input type="text" size="25" name="ticket_user" class="textfield" /></dd>
+
+				<dt><b>Password</b></dt>
+				<dd><input type="password" size="25" name="ticket_passwd" class="textfield" />
+					<br clear="all" />
+					<p class="sm">Forgotten your password?
+						<a href="https://ticket.iop.org/lostpasswd?return=http%3A%2F%2Fiopscience.iop.org%2F0268-1242%2F24%2F11%2F115006%2Fpdf%2F0268-1242_24_11_115006.pdf">Get a new one here</a>.
+					</p>
+				</dd>
+
+				<dt>
+					<label><input type="checkbox" checked="checked" value="true" name="remember_me"/> Remember me</label>
+				</dt>
+				<dd>
+					<input type="hidden" value="1" name="submit"/>
+					<input type="hidden" value="http://iopscience.iop.org/0268-1242/24/11/115006/pdf/0268-1242_24_11_115006.pdf" name="return"/>
+					<input type="submit" value=" Login " name="" class="button" style="float: right;" />
+				</dd>
+			</dl>
+
+		</form>
+
+	</div>
+
+<!-- footer end -->
+   		    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/js/6.5/lib/functional.min.js"></script>
+		<script type="text/javascript" src="/js/6.5/lib/jquery.livequery.js"></script>
+		<script type="text/javascript" src="/js/6.5/lib/jquery-autocomplete/lib/jquery.ajaxQueue.js"></script>
+		<script type="text/javascript" src="/js/6.5/lib/jquery-autocomplete/lib/jquery.bgiframe.min.js"></script>
+		<script type="text/javascript" src="/js/6.5/lib/jquery-autocomplete/jquery.autocomplete.js"></script>
+		<script type="text/javascript" src="/js/6.5/lib/jquery.tooltip.js"></script>
+		<script type="text/javascript" src="/js/6.5/lib/jquery.string.1.0.js"></script>
+		<script type="text/javascript" src="/js/6.5/lib/jquery.pnotify.js"></script>
+		<script type="text/javascript" src="/js/6.5/lib/jquery.autogrow.js"></script>
+		<script type="text/javascript" src="/js/6.5/lib/jquery.pxem.js"></script>
+		<script type="text/javascript" src="/js/6.5/lib/jquery.timers-1.2.js"></script>
+		<script type="text/javascript" src="/js/6.5/lib/jquery.json-2.2.js"></script>
+		
+		
+        
+		
+			
+			    <script type="text/javascript" src="/js/6.5/iop/all-min.js"></script>
+			
+			
+		
+		
+	
+	
+	
+	
+
+
+	</body>
+	
+</html>

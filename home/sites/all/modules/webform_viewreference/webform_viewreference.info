@@ -1,0 +1,13 @@
+name = Webform View Reference Component
+description = A Webform component that lets you use node View as a datasource.
+core = 6.x
+package = Webform
+dependencies[] = webform 
+dependencies[] = views
+dependencies[] = nodereference
+; Information added by drupal.org packaging script on 2011-02-25
+version = "6.x-1.x-dev"
+core = "6.x"
+project = "webform_viewreference"
+datestamp = "1298620715"
+

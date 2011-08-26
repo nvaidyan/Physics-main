@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Page not found | ASU Department of Physics</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="/sites/all/themes/phyzen/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="http://www.asu.edu/asuthemes/2.0/custom/all/css/endorsed_header_nav.css" type="text/css" />
+<link rel="stylesheet" href="http://www.asu.edu/asuthemes/2.0/css/asu_footer.css" type="text/css" />
+<link rel="stylesheet" href="http://www.asu.edu/asuthemes/2.0/custom/clas/css/asu_drupal_print.css" type="text/css" media="print" />
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" href="http://www.asu.edu/asuthemes/2.0/custom/clas/css/ie-classic.css" type="text/css" media="screen" />
+  <![endif]-->
+  <!--[if IE 7]>
+  <link rel="stylesheet" href="http://www.asu.edu/asuthemes/2.0/css/ie-vista.css" type="text/css" media="screen" />
+  <![endif]-->
+  <!--[if lte IE 7]>
+  <link rel="stylesheet" href="http://www.asu.edu/asuthemes/2.0/custom/clas/css/ie-print.css" type="text/css" media="print" />
+  <![endif]-->  <style type="text/css" media="all">@import "/sites/all/modules/devel/devel.css";</style>
+<style type="text/css" media="all">@import "/modules/extlink/extlink.css";</style>
+<style type="text/css" media="all">@import "/modules/node/node.css";</style>
+<style type="text/css" media="all">@import "/modules/system/defaults.css";</style>
+<style type="text/css" media="all">@import "/modules/system/system.css";</style>
+<style type="text/css" media="all">@import "/modules/user/user.css";</style>
+<style type="text/css" media="all">@import "/sites/all/modules/cck/content.css";</style>
+<style type="text/css" media="all">@import "/sites/all/modules/date/date.css";</style>
+<style type="text/css" media="all">@import "/sites/all/modules/event/event.css";</style>
+<style type="text/css" media="all">@import "/sites/all/modules/event_manager/event_manager.css";</style>
+<style type="text/css" media="all">@import "/sites/all/modules/fckeditor/fckeditor.css";</style>
+<style type="text/css" media="all">@import "/sites/all/modules/cck/fieldgroup.css";</style>
+<style type="text/css" media="all">@import "/sites/all/themes/phyzen/style.css";</style>
+<style type="text/css" media="screen">@import "/sites/all/themes/phyzen/css/custom.css";</style>
+  <script type="text/javascript" src="/misc/jquery.js"></script>
+<script type="text/javascript" src="/misc/drupal.js"></script>
+<script type="text/javascript" src="/modules/extlink/extlink.js"></script>
+<script type="text/javascript" src="/sites/all/modules/devel/devel.js"></script>
+<script type="text/javascript">Drupal.extend({ settings: { "extlink": { "extTarget": "_blank", "extClass": "ext", "extSubdomains": 1, "mailtoClass": "mailto" } } });</script>
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="/sites/all/themes/phyzen/css/ie6.css" />
+<![endif]-->
+<!--[if gte IE 7]>
+<link rel="stylesheet" type="text/css" href="/sites/all/themes/phyzen/css/ie7.css" />
+<![endif]-->
+<script src="/sites/all/themes/phyzen/css/fonts/cufon-yui.js" type="text/javascript"></script>
+<script src="/sites/all/themes/phyzen/css/fonts/Trajan_400-Trajan_700.font.js" type="text/javascript"></script>
+</head>
+
+<body class="not-front logged-in ntype-page">
+<div id="watermark-left"></div>
+<div id="watermark-right"></div>
+<!-- START asu_set_fixed_width -->
+<div class="asu_set_fixed_width">
+
+<ul class="skip">
+<li><a href="#main">Skip to content</a></li>
+<li><a href="#sidebar-right">Skip to navigation</a></li>
+	<!-- Including a site map is especially helpful to users dependent on assistive technology.
+	To create a quick sitemap, download the Sitemap Module ( http://drupal.org/project/site_map ); install the module in your folder /sites/all/modules (create folder if necessary); and enable it in http://YourSite.asu.edu/admin/build/modules. Then uncomment the link below. That's it! -->
+<!-- <li><a href="/sitemap">Skip to site map page</a></li> -->
+</ul>
+
+
+<div id="asu_container">
+
+	 <!-- START GOLD HEADER-->
+   <div id="asu_gold_hdr">
+		  <!-- START ASU LOGO /asuthemes/2.0/includes/php/clas_logo_drupal.php -->
+	   <div id="asu_logo">
+		<a href="http://clas.asu.edu/" title="CLAS Home"><img src="http://www.asu.edu/asuthemes/2.0/custom/clas/images/clas_logo.png" alt="College of Liberal Arts and Sciences" height="65" width="320" title="CLAS Home" /></a>
+	  </div>
+	  <!-- end asu logo -->
+      
+	      <!-- START UNIVERSAL NAV /asuthemes/2.0/includes/html/asu_universal_nav.shtml -->
+      <ul id="asu_universal_nav">
+        <li><a href="http://www.asu.edu/">ASU Home</a></li>
+        <li><a href="http://www.asu.edu/index/">ASU A-Z Index</a></li>
+        <li><a href="https://my.asu.edu/">My ASU</a></li>
+        <li><a href="http://www.asu.edu/colleges/">Colleges &amp; Schools</a></li>
+        <li><a href="http://www.asu.edu/directory/">Directory</a></li>
+        <li class="no-border"><a href="http://www.asu.edu/map/">Map</a></li>
+      </ul>
+      <!-- END UNIVERSAL NAV -->
+	
+      <!-- START LOGIN SEARCH MODULE  -->
+      <div id="asu_login_search">
+        <!-- START USER LOGIN MODULE -->
+        <ul id="asu_login_module">
+			<li class='first'>jvanzile</li>			<li class="last">
+			<a href="/logout">SIGN OUT</a>			</li>
+        </ul>
+        <!-- end user login module -->
+
+  	           <!-- START SEARCH MODULE /asuthemes/2.0/includes/php/asu_search.php -->
+          <div id="asu_search_module">
+              <!-- START GOOGLE SEARCH FORM -->
+              <form action="http://search.asu.edu/search" method="get" name="gs">
+                <label class="hidden" for="asu_search"><strong>Search</strong></label>
+                <input type="text" name="q" size="32" value="Search" id="asu_search" class="asu_search_box" onfocus="if (this.defaultValue &amp;&amp; this.value == this.defaultValue) { this.value = ''; }" />
+                <input type="image" name="op" src="http://www.asu.edu/asuthemes/2.0/images/asu_magglass_goldbg.gif" value="Search" alt="Search" title="search" class="asu_search_button" />
+                <input name="sort" value="date:D:L:d1" type="hidden" />
+                <input name="output" value="xml_no_dtd" type="hidden" />
+                <input name="ie" value="UTF-8" type="hidden" />
+                <input name="oe" value="UTF-8" type="hidden" />
+                <input name="client" value="asu_frontend" type="hidden" />
+                <input name="proxystylesheet" value="asu_frontend" type="hidden" />
+              </form>
+              <!-- END GOOGLE SEARCH FORM -->
+          </div>
+          <!-- END SEARCH MODULE -->
+        
+          <!-- CLEAR ALL FLOATS TO PROP OPEN THE HEADER -->
+          <div class="clear">&nbsp;</div>      </div>
+      <!-- end login search module -->
+   </div>
+   <!-- end gold header-->      
+
+	<!-- START OPTIONAL SECONDARY NAV BAR -->
+		<!-- end optional secondary nav bar -->
+	
+
+
+	
+	<div id="container" class="clear-block">
+
+				<!-- START SIDEBAR LEFT -->
+		<div id="sidebar-left" class="column sidebar">
+
+			
+			<div id="block-menu-2" class="block block-menu">  
+  <div class="blockinner">
+  	    <h2 class="title">  </h2>
+    <div class="content">
+      
+<ul class="menu">
+<li class="leaf"><a href="/">Home</a></li>
+<li class="collapsed"><a href="/about" title="About the Department of Physics">About Us</a></li>
+<li class="collapsed"><a href="/undergraduate" title="Information for undergraduate physics majors">Undergraduate Studies</a></li>
+<li class="collapsed"><a href="/graduate" title="Information for physics graduate students">Graduate Studies</a></li>
+<li class="collapsed"><a href="/general" title="Information for non-physics majors">General Studies</a></li>
+<li class="collapsed"><a href="/people">People</a></li>
+<li class="leaf"><a href="/research" title="Areas of research">Research</a></li>
+<li class="collapsed"><a href="/headlines">News &amp; Events</a></li>
+<li class="collapsed"><a href="/resources">Resources</a></li>
+<li class="collapsed"><a href="/support">Supporting ASU Physics</a></li>
+<li class="leaf"><a href="/contact">Contact Us</a></li>
+
+</ul>
+    </div>    
+  </div>
+</div>
+<div id="block-block-18" class="block block-block">  
+  <div class="blockinner">
+  	    <h2 class="title"> NOTICE </h2>
+    <div class="content">
+      <p><strong>The shaded menu sections contain functions restricted to authorized users.</strong></p>
+    </div>    
+  </div>
+</div>
+<div id="block-block-11" class="block block-block">  
+  <div class="blockinner">
+  	    <h2 class="title"> Authorized Users <font size='1'>(beta)</font> </h2>
+    <div class="content">
+      <ul class="menu">
+	<li class="leaf"><a href="/editProfile">Edit my profile</a></li>
+	<li class="leaf"><a href="/editLinks">Edit my links</a></li>
+	<li class="leaf"><a href="/editHours">Edit my office hours</a></li>
+</ul>
+    </div>    
+  </div>
+</div>
+<div id="block-menu-289" class="block block-menu">  
+  <div class="blockinner">
+  	    <h2 class="title"> Administrative Functions <font size='1'>(beta)</font> </h2>
+    <div class="content">
+      
+<ul class="menu">
+<li class="leaf"><a href="/addProfile">Add a Profile</a></li>
+<li class="leaf"><a href="/manageProfiles">Manage Profiles</a></li>
+<li class="leaf"><a href="/manageHours">Manage Office Hours</a></li>
+<li class="leaf"><a href="/editCV">View/Edit Faculty CVs</a></li>
+
+</ul>
+    </div>    
+  </div>
+</div>
+<div id="block-menu-268" class="block block-menu">  
+  <div class="blockinner">
+  	    <h2 class="title"> Graduate <font size='1'>(beta)</font> </h2>
+    <div class="content">
+      
+<ul class="menu">
+<li class="leaf"><a href="/gradList">Student List</a></li>
+<li class="leaf"><a href="/gradAsstReq">Assistantship Requests</a></li>
+<li class="leaf"><a href="/gradAssistantships">TA History Report</a></li>
+<li class="leaf"><a href="/gradCommitteeReport.php">Committee Report</a></li>
+<li class="leaf"><a href="/gradFacultyCommitteeLoadReport.php">Faculty Load Report</a></li>
+<li class="leaf"><a href="/gradConcentrationReport.php">Concentration Report</a></li>
+<li class="leaf"><a href="/gradSPEAKreport.php">SPEAK Report</a></li>
+<li class="leaf"><a href="/gradCompsReport.php">Comps Report</a></li>
+<li class="leaf"><a href="/gradApplicationReport">Application List Report</a></li>
+<li class="leaf"><a href="/gradAdd">Add a Student</a></li>
+
+</ul>
+    </div>    
+  </div>
+</div>
+<div id="block-block-9" class="block block-block">  
+  <div class="blockinner">
+  	    <h2 class="title"> Assistantships (TA/RA) <font size='1'>(beta)</font> </h2>
+    <div class="content">
+       <ul class="menu">     <li class="leaf"><a href="/taraAbout2">Enter Preferences</a></li>     <li class="leaf"><a href="/taraAbout">Submit Application</a></li>          <li class="leaf"><a href="/taraAppList">View/Edit Applications</a></li>     <li class="leaf"><a href="/taraPrefsReport">Preferences Report</a></li>     <li class="leaf"><a href="/taraAppReport">Application Report</a></li>     <li class="leaf"><a href="/taraAdmin">Administration</a></li>      </ul>    </div>    
+  </div>
+</div>
+<div id="block-menu-279" class="block block-menu">  
+  <div class="blockinner">
+  	    <h2 class="title"> Faculty Meetings <font size='1'>(beta)</font> </h2>
+    <div class="content">
+      
+<ul class="menu">
+<li class="leaf"><a href="/facultyMeeting/list">Manage Meetings</a></li>
+
+</ul>
+    </div>    
+  </div>
+</div>
+<div id="block-menu-280" class="block block-menu">  
+  <div class="blockinner">
+  	    <h2 class="title"> Event RSVP <font size='1'>(beta)</font> </h2>
+    <div class="content">
+      
+<ul class="menu">
+<li class="leaf"><a href="/eventAdd">Add an Event</a></li>
+<li class="leaf"><a href="/eventList">Manage Events</a></li>
+
+</ul>
+    </div>    
+  </div>
+</div>
+<div id="block-menu-284" class="block block-menu">  
+  <div class="blockinner">
+  	    <h2 class="title"> Certifications <font size='1'>(beta)</font> </h2>
+    <div class="content">
+      
+<ul class="menu">
+<li class="leaf"><a href="/certificationAdd">Add a Certification</a></li>
+<li class="leaf"><a href="/certificationList">Manage Certifications</a></li>
+
+</ul>
+    </div>    
+  </div>
+</div>
+<div id="block-block-10" class="block block-block">  
+  <div class="blockinner">
+  	    <h2 class="title"> Ballot &amp; Voting <font size='1'>(beta)</font> </h2>
+    <div class="content">
+       <ul class="menu"> 	     <li class="leaf"><a href="/election/list">View/Edit Elections</a></li>     <li class="leaf"><a href="/election/add">Add an Election</a></li>      </ul>    </div>    
+  </div>
+</div>
+<div id="block-menu-287" class="block block-menu">  
+  <div class="blockinner">
+  	    <h2 class="title"> Alumni <font size='1'>(beta)</font> </h2>
+    <div class="content">
+      
+<ul class="menu">
+<li class="leaf"><a href="/alumni/list">View/Edit Alumni</a></li>
+<li class="leaf"><a href="/alumni/export">Export Alumni</a></li>
+
+</ul>
+    </div>    
+  </div>
+</div>
+<div id="block-block-16" class="block block-block">  
+  <div class="blockinner">
+  	    <h2 class="title"> Employment </h2>
+    <div class="content">
+       <ul class="menu">      <li class="leaf"><a href="/positionAdd">Add a Position</a></li>          <li class="leaf"><a href="/positionList">View/Edit Positions</a></li>          <li class="leaf"><a href="/applicantList">View/Edit Applicants</a></li>          <li class="leaf"><a href="/applicantCommentReport">Applicant Comment Report</a></li>     <li class="leaf"><a href="/applicantSearcher.php">Get All Documents for a given position</a></li>         <li class="leaf"><a target="_blank" href="https://physics.sharepoint.asu.edu/dept_info/Legacy%20Employment%20Applications/Forms/AllItems.aspx">View Archived Employment Data (pre 9/30/2010)</a></li>      </ul>    </div>    
+  </div>
+</div>
+<div id="block-block-12" class="block block-block">  
+  <div class="blockinner">
+  	    <h2 class="title"> Research Rotation <font size='1'>(beta)</font> </h2>
+    <div class="content">
+      <ul class="menu">
+	<li class="leaf"><a href="/rotation/catalog">View Catalog</a></li>
+	<li class="leaf"><a href="/rotation/list">Manage Projects</a></li>
+	<li class="leaf"><a href="/rotation/add">Add New Project</a></li>
+<li class="leaf"><a href="/rotation/applicant/list">Review Applicants</a></li></ul>
+    </div>    
+  </div>
+</div>
+<div id="block-block-13" class="block block-block">  
+  <div class="blockinner">
+  	    <h2 class="title"> Committee Resources <font size='1'>(beta)</font> </h2>
+    <div class="content">
+      <ul class="menu">
+<li class="leaf"><a href="/resource/list">View/Edit Resources</a></li><li class="leaf"><a href="/resource/add/">Add a Resource</a></li></ul>
+    </div>    
+  </div>
+</div>
+<div id="block-block-14" class="block block-block">  
+  <div class="blockinner">
+  	    <h2 class="title"> Textbook Orders <font size='1'>(beta)</font> </h2>
+    <div class="content">
+      <ul class="menu">
+<li class="leaf"><a href="/textbook/add">Order a Textbook</a></li>
+	<li class="leaf"><a href="/textbook/list">View/Edit Orders</a></li><li class="leaf"><a href="/textbook/manage">Manage Orders</a></li>
+	<li class="leaf"><a href="/textbook/report/options">Printable Report</a></li>
+	<li class="leaf"><a href="/textbook/admin">Administration</a></li></ul>
+    </div>    
+  </div>
+</div>
+<div id="block-block-15" class="block block-block">  
+  <div class="blockinner">
+  	    <h2 class="title"> News &amp; Events <font size='1'>(beta)</font> </h2>
+    <div class="content">
+      <ul class="menu">
+<li class="leaf"><a href="/news-event/add">Submit a News Item</a></li><li class="leaf"><a href="/news-event/list">Manage News/Events</a></li></ul>
+    </div>    
+  </div>
+</div>
+<div id="block-menu-332" class="block block-menu">  
+  <div class="blockinner">
+  	    <h2 class="title"> Outstanding Award Nominations </h2>
+    <div class="content">
+      
+<ul class="menu">
+<li class="leaf"><a href="/node/add/outstanding-award-nomination" title="Make a new outstanding award nomination">Make new nomination</a></li>
+<li class="leaf"><a href="/award_nominations/OutstandingFaculty" title="A list of all nominees for Outstanding Faculty">View all Outstanding Faculty Nominations</a></li>
+<li class="leaf"><a href="/award_nominations/OutstandingGrads" title="View a list of all people nominated for outstanding graduate student">View all Outstanding Graduate Assistant Nominations</a></li>
+<li class="leaf"><a href="/award_nominations/OutstandingStaff" title="A list of all nominees for Outstanding Staff">View all Outstanding Staff Nominations</a></li>
+<li class="leaf"><a href="/award_nominations/OutstandingUndergrads" title="Shows all people nominated for outstanding undergrad">View all Outstanding Undergrad Nominations</a></li>
+
+</ul>
+    </div>    
+  </div>
+</div>
+<div id="block-user-1" class="block block-user">  
+  <div class="blockinner">
+  	    <h2 class="title"> Drupal Functions </h2>
+    <div class="content">
+      
+<ul class="menu">
+<li class="leaf"><a href="/devel/queries">Database queries</a></li>
+<li class="collapsed"><a href="/node/add">Create content</a></li>
+<li class="leaf"><a href="/finduser" title="Find user search form">Find users</a></li>
+<li class="leaf"><a href="/user/8050">My account</a></li>
+<li class="collapsed"><a href="/admin">Administer</a></li>
+<li class="leaf"><a href="/logout">Log out</a></li>
+
+</ul>
+    </div>    
+  </div>
+</div>
+<div id="block-block-7" class="block block-block">  
+  <div class="blockinner">
+  	    <h2 class="title">  </h2>
+    <div class="content">
+      <map name="flash"> <area href="/files/newsletter/Physics_Flash_Vol_2_ No_7.pdf" alt="View current issue" title="View current issue" shape="rect" coords="1,40,98,59" target="_blank" /> <area href="/physicsFlash" alt="Archive" title="Archive" shape="rect" coords="100,40,158,59" target="_blank" /> </map> <img alt="" src="/images/flash_button.gif" style="margin: 20px 0pt 0pt 10px;" usemap="#flash" />    </div>    
+  </div>
+</div>
+<div id="block-block-8" class="block block-block">  
+  <div class="blockinner">
+  	    <h2 class="title">  </h2>
+    <div class="content">
+      <map name="positions"><area href="/employment" alt="View and apply for open positions" title="View and apply for open positions" shape="rect" coords="39,45,120,55"></map><img src="/images/open_positions_button.gif" style="margin:20px 0 0 10px;" usemap="#positions" />    </div>    
+  </div>
+</div>
+<div id="block-revision_moderation-0" class="block block-revision_moderation">  
+  <div class="blockinner">
+  	    <h2 class="title"> Pending revisions </h2>
+    <div class="content">
+      No pending revisions found.    </div>    
+  </div>
+</div>
+		</div>
+		<!-- end sidebar-left -->
+		
+		<!-- START MAIN AND SQUEEZE -->
+		<div id="main" class="column" style="float:none;"><div id="squeeze">
+			<div class="breadcrumb"><div class="breadcrumb"><a href="/">Home</a></div></div>			<h1 class="title">Page not found</h1>						
+												<div class="node ntype-page" id="node-181">
+  
+    
+  
+  
+    
+  <div class="content">
+    <p>The page you requested was not found on the server. If you entered the URL yourself, please check that it was entered correctly. If you received this message after clicking a link on this site, please inform our <a href="mailto:%20physics.it@asu.edu" target="_blank">webmaster</a> of the issue.</p>
+  </div>
+
+    
+   
+</div>
+								</div></div>
+		<!-- end main and squeeze -->
+
+		
+		<div style="clear:both;"></div>
+
+	</div>
+	<!-- end container -->
+
+	   <!-- START FOOTER /asuthemes/2.0/includes/html/asu_footer.shtml -->   
+   <ul id="asu_footer" class="asu_black_footer">
+     <li><a href="http://www.asu.edu/copyright/">Copyright &amp; Trademark</a></li>
+     <li><a href="http://www.asu.edu/accessibility/">Accessibility</a></li>
+     <li><a href="http://www.asu.edu/privacy/">Privacy</a></li>
+     <li><a href="http://www.asu.edu/emergency/">Emergency</a></li>
+     <li class="no-border"><a href="http://www.asu.edu/contactasu/">Contact ASU</a></li>
+   </ul>
+   <!-- END FOOTER -->
+
+		<!-- START FOOTER CONTACT INFO -->
+	<div id="asu_footer_contact_info">
+	<p><p><a href="/"><strong>Department of Physics</strong></a>&nbsp;<br /><a href="http://www.asu.edu/tour/tempe/psf.html">Bateman Physical Sciences Center F-Wing</a>, PSF 470 | PO Box 871504, Tempe, AZ 85287-1504<br />Phone: 480-965-3561 | Fax: 480-965-7954 | <a href="/feedback">Contact Us</a></p>
+</p>
+	</div>
+	<!-- end footer contact info -->
+	
+	
+</div>
+<!-- end asu_container -->
+</div>
+<!-- end asu_set_fixed_width -->
+
+   <!-- Begin ASU Google Analytics code -->
+   <script type="text/javascript">
+     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+   </script>
+    
+   <script type="text/javascript">
+     var pageTracker = _gat._getTracker("UA-2392647-1");
+     pageTracker._setDomainName(".asu.edu");
+     pageTracker._initData();
+     pageTracker._trackPageview();
+   </script>
+   <!-- End ASU Google Analytics code -->
+</body>
+</html>
+<div class="dev-query"> Queries taking longer than <em>5</em> ms and queries executed more than once, are <span class="marker">highlighted</span>.<table>
+ <tr><th>ms</th><th>#</th><th>where</th><th>query</th></tr>
+</table>
+</div>

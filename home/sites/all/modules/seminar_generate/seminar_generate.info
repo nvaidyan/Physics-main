@@ -1,0 +1,9 @@
+; $Id$
+name = seminar_generate
+description = Generate dummy seminars for a semester.
+package = ASU
+dependencies[] = devel
+dependencies[] = content
+dependencies[] = views
+core = 6.x
+version = 6.x-beta0

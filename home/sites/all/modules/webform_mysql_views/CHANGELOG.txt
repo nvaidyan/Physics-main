@@ -1,0 +1,23 @@
+Webform MySQL Views 6.x-1.2, 2011-01-14
+* Fix for [#1026208] - grid component values are now formatted as a
+  comma-separated list of key=val expressions.
+* Fixed [#1026522] - When building the view query, field names are enclosed
+  with backticks to avoid collisions with MySQL reserved words.
+* [#1024200] Applied excellent patch from Frega, which adds automatic
+  integration with the Data and Views modulse and thereby makes Webform MySQL
+  views available
+  to the Drupal Views module.
+* Fix for [#1027092]: View name deduping logic uses active database name.
+  Also includes a fix for $db_prefix handling in general.
+* Fix for [#1024192] - $db_prefix is now properly prepended to the view name
+  before storing it in the webform_mysql_views_views system variable.
+
+Webform MySQL Views 6.x-1.1, 2011-01-11
+* Fixed #1005606 - Omit fieldset components
+* Fixed #1005600 - View breaks if a field allows multiple values
+* Updated README.txt to address #1006648, confusion about 
+  MySQL Views vs Drupal Views
+* Added CHANGELOG.txt
+
+Webform MySQL Views 6.x-1.0, 2010-12-22
+* Initial Release

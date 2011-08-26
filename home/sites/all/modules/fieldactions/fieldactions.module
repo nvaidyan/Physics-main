@@ -1,0 +1,661 @@
+<?php
+
+/**
+ * @file
+ * Actions-based things to do with CCK fields.
+ */
+
+/**
+ * Implementation of hook_action_info().
+ */
+function fieldactions_action_info() {
+  return array(
+    'fieldactions_assign_owner_to_userreference_action' => array(
+      'description' => t('Change node author based on a user reference field'),
+      'configurable' => TRUE,
+      'type' => 'node',
+      'hooks' => array(
+        'nodeapi' => array('insert', 'update')
+      )
+    ),
+    'fieldactions_assign_value_to_nodereference_action' => array(
+      'description' => t('Change node reference value'),
+      'configurable' => TRUE,
+      'type' => 'node',
+      'hooks' => array(
+        'nodeapi' => array('insert', 'update')
+      )
+    ),
+    'fieldactions_send_email_to_userreference_action' => array(
+      'description' => t('Send email to a user reference field'),
+      'type' => 'node',
+      'configurable' => TRUE,
+      'hooks' => array(
+        'nodeapi' => array('insert', 'update')
+      )
+    ),
+    'fieldactions_send_email_to_nodereference_action' => array(
+      'description' => t('Send email to the author of the node selected in the node reference field'),
+      'type' => 'node',
+      'configurable' => TRUE,
+      'hooks' => array(
+        'nodeapi' => array('insert', 'update')
+      )
+    ),
+    'fieldactions_send_email_to_owner_action' => array(
+      'description' => t('Send email to the creator of the node'),
+      'type' => 'node',
+      'configurable' => TRUE,
+      'hooks' => array(
+        'nodeapi' => array('insert', 'update')
+      )
+    ),
+    'fieldactions_send_email_to_email_action' => array(
+      'description' => t('Send email to the value of an email widget field'),
+      'type' => 'node',
+      'configurable' => TRUE,
+      'hooks' => array(
+        'nodeapi' => array('insert', 'update')
+      )
+    )
+  );
+}
+
+/**
+ * General handler for replacing tokens and setting the subject and body for outgoing email.
+ * Expects context, node, and vars elements in the $params parameter.
+ */
+function fieldactions_general_mail($key, &$message, $params) {
+  // replace the subjects and messages with their token replaced equivalents
+  if (module_exists('token')) {
+    $subject = token_replace($params['context']['subject'], 'node', $params['node']);
+    $body = token_replace($params['context']['message'], 'node', $params['node']);
+  }
+  $subject = strtr($subject, $params['vars']);
+  $message['subject'] = str_replace(array("\r", "\n"), '', $subject);
+  $message['body'][] = strtr($body, $params['vars']);
+}
+
+/**
+ * Implementation of an action.
+ * Assigns the ownership of a node to a value in a User Reference field.
+ */
+function fieldactions_assign_owner_to_userreference_action($node, $context) {
+  if (isset($node->{$context['ur_field_name']}[0])) {
+    $uid = $node->{$context['ur_field_name']}[0]['uid'];
+    $node->uid = $uid;
+    $node->revision = '0';
+    if (!$context['defer']) {
+      node_save($node);
+    }
+    watchdog('fieldactions', 'Changed owner of node %id to uid %uid', array('%id' => intval($node->nid), '%uid' => intval($uid)), WATCHDOG_INFO);
+  }
+  else {
+    watchdog('fieldactions', 'Could not reassign the owner of node %id because it did not contain the specified user reference field', array('%id' => intval($node->nid)), WATCHDOG_WARNING);
+  }
+}
+
+/**
+ * Form array for configuring the advanced action to edit the action that
+ * switches the node author to the value of a userreference field.
+ *
+ * @return array
+ */
+function fieldactions_assign_owner_to_userreference_action_form($context) {
+  $form = array();
+  $form['ur_field_name'] = array(
+    '#type' => 'select',
+    '#title' => t('User Reference Field'),
+    '#default_value' => $context['ur_field_name'],
+    '#options' => _fieldactions_userreference_fields(),
+    '#description' => t('Select the user reference field to use when reassigning node ownership. If this field does not exist in the node when the action runs, ownership will not change. If there are more than one users in the field, this action will select the first user.')
+  );
+  return $form;
+}
+
+/**
+ * Implementation of a Drupal action.
+ * Assigns ownership of a node to a user defined in a user reference field.
+ * If multiple users are defined, only the user will become the owner.
+ */
+function fieldactions_assign_owner_to_userreference_action_submit($form, &$form_state) {
+  return array('ur_field_name' => $form_state['values']['ur_field_name']);
+}
+
+/**
+ * Implementation of an action.
+ * Assigns a value to a node reference field.
+ */
+function fieldactions_assign_value_to_nodereference_action($node, $context) {
+  if (isset($node->{$context['nr_field_name']}[0])) {
+    $node->{$context['nr_field_name']}[0]['nid'] = $context['nr_field_value'];
+    $node->revision = '0';
+    if (!$context['defer']) {
+      node_save($node);
+    }
+    watchdog('fieldactions', 'Changed value of node reference field %field in node %id to reference %nid.', array('%field' => $context['nr_field_name'], '%id' => intval($node->nid), '%nid' => intval($context['nr_field_value'])), WATCHDOG_INFO);
+  }
+  else {
+    watchdog('fieldactions', 'Could not reset the value of node reference %field in node %id to %nid because it did not contain the specified node reference field.', array('%field' => $context['nr_field_name'], '%id' => intval($node->nid), '%nid' => intval($context['nr_field_value'])), WATCHDOG_NOTICE);
+  }
+}
+
+/**
+ * Form array for configuring the advanced action to edit the action that
+ * switches the node reference to a configured value.
+ *
+ * @return array
+ */
+function fieldactions_assign_value_to_nodereference_action_form($context) {
+  $form = array();
+  $form['nr_field_name'] = array(
+    '#type' => 'select',
+    '#title' => t('Node reference field'),
+    '#default_value' => $context['nr_field_name'],
+    '#options' => _fieldactions_nodereference_fields(),
+    '#description' => t('Select the user reference field to use when reassigning node ownership. If this field does not exist in the node when the action runs, ownership will not change. If there are more than one users in the field, this action will select the first user.')
+  );
+  $form['nr_field_value'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Node reference value'),
+    '#size' => 10,
+    '#required' => TRUE,
+    '#default_value' => $context['nr_field_value'],
+    '#description' => t('Enter a numeric value of a node id to set the node reference field when the action is fired.')
+  );
+  return $form;
+}
+
+function fieldactions_assign_value_to_nodereference_action_validate($form, &$form_state) {
+  if ($form_state['values']['nr_field_value'] == '' || !is_numeric($form_state['values']['nr_field_value'])) {
+    form_set_error('nr_field_value', t('The node reference value must be numeric.'));
+  }
+  if (!node_load($form_state['values']['nr_field_value'])) {
+    form_set_error('nr_field_value', t('Specified node does not exist.'));
+  }
+}
+
+/**
+ * Implementation of a Drupal action.
+ * Assigns ownership of a node to a user defined in a user reference field.
+ * If multiple users are defined, only the user will become the owner.
+ */
+function fieldactions_assign_value_to_nodereference_action_submit($form, &$form_state) {
+  return array(
+    'nr_field_name' => $form_state['values']['nr_field_name'],
+    'nr_field_value' => $form_state['values']['nr_field_value']
+  );
+}
+
+/**
+ * Implementation of a Drupal action.
+ * This action sends email to each user in a user reference field.
+ * If the field is empty, no email will be sent.
+ * Multiple fields send multiple emails.
+ *
+ * By switching the type to user in fieldactions_action_info(), the first
+ * parameter will already be the user object so this function wouldn't have
+ * to do the user_load() inside it. The reason that wasn't done here is
+ * because the tokens for this action are based on the node. $context will
+ * have the node information even if this action type was user.
+ */
+function fieldactions_send_email_to_userreference_action($node, $context) {
+  // does this node have the recipient user ref field?
+  if (isset($node->{$context['recipient']}) && is_array($node->{$context['recipient']})) {
+    // pull out each represenation of the field (an array with 'uid) in it
+    foreach ($node->{$context['recipient']} as $field) {
+      // empty fields have the uid key set, but aren't valid
+      // also, we can't send mail to anonymous users, so don't try
+      if (empty($field['uid'])) {
+        continue;
+      }
+
+      // load the user we want
+      $ref_user = user_load(array('uid' => $field['uid']));
+
+      // create the varibales array from this user and the node
+      $vars = _fieldactions_userreference_token_replacements($ref_user, $node);
+
+      $from = $vars['%site_name'] .' <'. $vars['%site_mail'] .'>';
+
+      $account = user_load($vars['%user_ref_mail']);
+      $language = user_preferred_language($account);
+
+      $params = array(
+        'context' => $context,
+        'node' => $node,
+        'vars' => $vars
+      );
+      if (drupal_mail('fieldactions_general', 'fieldactions_userreference', $vars['%user_ref_mail'], $language, $params, $from, TRUE)) {
+        watchdog('fieldactions', 'Sent email to %recipient', array('%recipient' => $vars['%user_ref_mail']), WATCHDOG_INFO);
+      }
+      else {
+        watchdog('error', 'Unable to send email to %recipient', array('%recipient' => $recipient), WATCHDOG_WARNING);
+      }
+    }
+  }
+}
+
+function fieldactions_send_email_to_userreference_action_form($context) {
+  if (!isset($context['subject'])) $context['subject'] = '';
+  if (!isset($context['message'])) $context['message'] = '';
+
+  $form = array();
+
+  $form['recipient'] = array(
+    '#type' => 'select',
+    '#title' => t('Recipient User Reference Field'),
+    '#default_value' => $context['recipient'],
+    '#options' => _fieldactions_userreference_fields(),
+    '#description' => t('Select the user reference field to use as the recipient of this email message. If this field does not exist in the node when the action runs, email will not be sent. If there are more than one users in the field, this action will select the first user.')
+  );
+  $form['subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Subject'),
+    '#default_value' => $context['subject'],
+    '#size' => '20',
+    '#maxlength' => '254',
+    '#description' => t('The subject of the message.')
+  );
+  $form['message'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Message'),
+    '#default_value' => $context['message'],
+    '#cols' => '80',
+    '#rows' => '20',
+    '#description' => t('The message that should be sent. You may include the following variables:') .' '. implode(', ', array_keys(_fieldactions_userreference_token_replacements()))
+  );
+  if (module_exists('token')) {
+    $form['token_help'] = array(
+      '#title' => t('Replacement patterns'),
+      '#type' => 'fieldset',
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+      '#description' => t('Prefer raw-text replacements for text to avoid problems with HTML entities!')
+    );
+    $form['token_help']['help'] = array(
+      '#value' => theme('token_help', 'node')
+    );
+  }
+  return $form;
+}
+
+function fieldactions_send_email_to_userreference_action_submit($form, &$form_state) {
+  return array(
+    'recipient' => $form_state['values']['recipient'],
+    'subject'   => $form_state['values']['subject'],
+    'message'   => $form_state['values']['message']
+  );
+}
+
+function fieldactions_send_email_to_nodereference_action($node, $context) {
+  // does this node have the node reference field?
+  if (isset($node->{$context['node']}) && is_array($node->{$context['node']})) {
+    // pull out each represenation of the field (an array with nid) in it
+    foreach ($node->{$context['node']} as $field) {
+      //a nonexistant nid field means that the nodereference box was not used
+      if (!isset($field['nid'])) {
+        continue;
+      }
+
+      // load the node referenced in the field
+      $referred_node = node_load($field['nid']);
+
+      // create the variables array from this node and the referred node
+      $vars = _fieldactions_nodereference_token_replacements($referred_node, $node);
+
+      // construct the actual message
+      $from = $vars['%site_name'] .' <'. $vars['%site_mail'] .'>';
+
+      $account = user_load($vars['%referred_node_owner_mail']);
+      $language = user_preferred_language($account);
+
+      $params = array(
+        'context' => $context,
+        'node' => $node,
+        'vars' => $vars
+      );
+
+      // mail it and log it
+      if (drupal_mail('fieldactions_general', 'fieldactions_nodereference', $vars['%referred_node_owner_mail'], $language, $params, $from, TRUE)) {
+        watchdog('fieldactions', 'Sent email to %recipient', array('%recipient' => $vars['%referred_node_owner_mail']), WATCHDOG_INFO);
+      }
+      else {
+        watchdog('error', 'Unable to send email to %recipient', array('%recipient' => $vars['%referred_node_owner_mail']), WATCHDOG_WARNING);
+      }
+    }
+  }
+}
+
+function fieldactions_send_email_to_nodereference_action_form($context) {
+  if (!isset($context['subject'])) $context['subject'] = '';
+  if (!isset($context['message'])) $context['message'] = '';
+
+  $form = array();
+
+  $form['node'] = array(
+    '#type' => 'select',
+    '#title' => t('Recipient Node Reference Field'),
+    '#default_value' => $context['node'],
+    '#options' => _fieldactions_nodereference_fields(),
+    '#description' => t("Select the node reference field that will reference the node(s) who's author(s) will recieve this email. If this field does not exist in the node when the action runs, email will not be sent."),
+  );
+  $form['subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Subject'),
+    '#default_value' => $context['subject'],
+    '#size' => '20',
+    '#maxlength' => '254',
+    '#description' => t('The subject of the message.')
+  );
+  $form['message'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Message'),
+    '#default_value' => $context['message'],
+    '#cols' => '80',
+    '#rows' => '20',
+    '#description' => t('The message that should be sent. You may include the following variables:') .' '. implode(', ', array_keys(_fieldactions_nodereference_token_replacements()))
+  );
+  if (module_exists('token')) {
+    $form['token_help'] = array(
+      '#title' => t('Replacement patterns'),
+      '#type' => 'fieldset',
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+      '#description' => t('Prefer raw-text replacements for text to avoid problems with HTML entities!')
+    );
+    $form['token_help']['help'] = array(
+      '#value' => theme('token_help', 'node')
+    );
+  }
+  return $form;
+}
+
+function fieldactions_send_email_to_nodereference_action_submit($form, &$form_state) {
+  return array(
+    'node'    => $form_state['values']['node'],
+    'subject' => $form_state['values']['subject'],
+    'message' => $form_state['values']['message']
+  );
+}
+
+function fieldactions_send_email_to_owner_action($node, $context) {
+  // load the user we want
+  $user = user_load(array('uid' => $node->uid));
+
+  // create the variables array from this user and the node
+  $vars = _fieldactions_userreference_token_replacements($user, $node);
+
+  // construct the actual message
+  $from = $vars['%site_name'] .' <'. $vars['%site_mail'] .'>';
+  $language = user_preferred_language($user);
+
+  $params = array(
+    'node' => $node,
+    'context' => $context,
+    'vars' => $vars
+  );
+
+  if (drupal_mail('fieldactions_general', 'fieldactions_mail_to_owner', $vars['%node_owner_mail'], $language, $params, $from, TRUE)) {
+    watchdog('fieldactions', 'Sent email to %recipient', array('%recipient' => $vars['%node_owner_mail']), WATCHDOG_INFO);
+  }
+  else {
+    watchdog('error', 'Unable to send email to %recipient', array('%recipient' => $vars['%node_owner_mail']), WATCHDOG_WARNING);
+  }
+}
+
+function fieldactions_send_email_to_owner_action_form($context) {
+  if (!isset($context['subject'])) $context['subject'] = '';
+  if (!isset($context['message'])) $context['message'] = '';
+
+  $form = array();
+
+  $form['subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Subject'),
+    '#default_value' => $context['subject'],
+    '#size' => '20',
+    '#maxlength' => '254',
+    '#description' => t('The subject of the message.')
+  );
+  $form['message'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Message'),
+    '#default_value' => $context['message'],
+    '#cols' => '80',
+    '#rows' => '20',
+    '#description' => t('The message that should be sent. You may include the following variables:') .' '. implode(', ', array_keys(_fieldactions_userreference_token_replacements()))
+  );
+  if (module_exists('token')) {
+    $form['token_help'] = array(
+      '#title' => t('Replacement patterns'),
+      '#type' => 'fieldset',
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+      '#description' => t('Prefer raw-text replacements for text to avoid problems with HTML entities!')
+    );
+    $form['token_help']['help'] = array(
+      '#value' => theme('token_help', 'node')
+    );
+  }
+  return $form;
+}
+
+function fieldactions_send_email_to_owner_action_submit($form, &$form_state) {
+  return array(
+    'subject' => $form_state['values']['subject'],
+    'message' => $form_state['values']['message']
+  );
+}
+
+function fieldactions_send_email_to_email_action_form($context) {
+  if (!isset($context['subject'])) $context['subject'] = '';
+  if (!isset($context['message'])) $context['message'] = '';
+
+  $form = array();
+
+  $form['field'] = array(
+    '#type' => 'select',
+    '#title' => t('Recipient Email Field'),
+    '#default_value' => $context['field'],
+    '#options' => _fieldactions_email_fields(),
+    '#description' => t("Select the email field that will receive this email. If this field does not exist in the node when the action runs, email will not be sent."),
+  );
+  $form['subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Subject'),
+    '#default_value' => $context['subject'],
+    '#size' => '20',
+    '#maxlength' => '254',
+    '#description' => t('The subject of the message.')
+  );
+  $form['message'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Message'),
+    '#default_value' => $context['message'],
+    '#cols' => '80',
+    '#rows' => '20',
+    '#description' => t('The message that should be sent. You may include the following variables:') .' '. implode(', ', array_keys(_fieldactions_email_token_replacements()))
+  );
+  if (module_exists('token')) {
+    $form['token_help'] = array(
+      '#title' => t('Replacement patterns'),
+      '#type' => 'fieldset',
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+      '#description' => t('Prefer raw-text replacements for text to avoid problems with HTML entities!')
+    );
+    $form['token_help']['help'] = array(
+      '#value' => theme('token_help', 'node')
+    );
+  }
+  return $form;
+}
+
+function fieldactions_send_email_to_email_action_submit($form, &$form_state) {
+  return array(
+    'field'   => $form_state['values']['field'],
+    'subject' => $form_state['values']['subject'],
+    'message' => $form_state['values']['message']
+  );
+}
+
+function fieldactions_send_email_to_email_action($node, $context) {
+  // load the user we want
+  if (!empty($context['field']) && !empty($node->{$context['field']}[0]['email'])) {
+    foreach ($node->$context['field'] as $field_value) {
+      $user = user_load(array('mail' => $field_value['email']));
+
+      // create the variables array from this user and the node
+      $vars = _fieldactions_email_token_replacements($user, $node);
+
+      // construct the actual message
+      $from = $vars['%site_name'] .' <'. $vars['%site_mail'] .'>';
+      $language = $user != FALSE ? user_preferred_language($user) : language_default();
+
+      $params = array(
+        'node' => $node,
+        'context' => $context,
+        'vars' => $vars
+      );
+
+      if (drupal_mail('fieldactions_general', 'fieldactions_mail_to_email', $field_value['email'], $language, $params, $from, TRUE)) {
+        watchdog('fieldactions', 'Sent email to %recipient', array('%recipient' => $field_value['email']), WATCHDOG_INFO);
+      }
+      else {
+        watchdog('error', 'Unable to send email to %recipient', array('%recipient' => $field_value['email']), WATCHDOG_WARNING);
+      }
+    }
+  }
+}
+
+/**
+ * Get a list of all the email fields.
+ */
+function _fieldactions_email_fields() {
+  $allfields = content_fields();
+  $fields = array();
+  foreach ($allfields as $name => $field) {
+    if ($field['type'] == 'email') {
+      // if a field is used twice, we only need one label, but we append
+      // the field name to remove ambiguity about where this will apply
+      $fields[$name] = $field['widget']['label'] ." ($name)";
+    }
+  }
+
+  return $fields;
+}
+
+/**
+ * Get a list of all the node reference fields.
+ */
+function _fieldactions_nodereference_fields() {
+  $allfields = content_fields();
+  $fields = array();
+  foreach ($allfields as $name => $field) {
+    if ($field['type'] == 'nodereference') {
+      // if a field is used twice, we only need one label, but we append
+      // the field name to remove ambiguity about where this will apply
+      $fields[$name] = $field['widget']['label'] ." ($name)";
+    }
+  }
+
+  return $fields;
+}
+
+/**
+ * Get a list of all the user reference fields.
+ */
+function _fieldactions_userreference_fields() {
+  $allfields = content_fields();
+  $fields = array();
+  foreach ($allfields as $name => $field) {
+    if ($field['type'] == 'userreference') {
+      // if a field is used twice, we only need one label, but we append
+      // the field name to remove ambiguity about where this will apply
+      $fields[$name] = $field['widget']['label'] ." ($name)";
+    }
+  }
+
+  return $fields;
+}
+
+function _fieldactions_email_token_replacements($subject = NULL, $node = NULL) {
+  global $user;
+  $node_owner = user_load(array('uid' => $node->uid));
+
+  $variables = array(
+    '%site_name' => variable_get('site_name', 'Drupal'),
+    '%site_mail' => variable_get('site_mail', ini_get('sendmail_from')),
+    '%node_owner_name' => $node_owner->name,
+    '%node_owner_mail' => $node_owner->mail,
+    '%node_owner_uid' => $node_owner->uid,
+    '%current_user_name' => $user->name,
+    '%current_user_mail' => $user->mail,
+    '%current_user_uid' => $user->uid,
+    '%node_url' => url('node/'. $node->nid, array('absolute' => TRUE)),
+    '%site_url' => url('', array('absolute' => TRUE)),
+    '%node_type' => $node->type,
+    '%title' => $node->title,
+    '%teaser' => strip_tags($node->teaser),
+    '%body' => strip_tags($node->body)
+  );
+
+  return $variables;
+}
+
+function _fieldactions_userreference_token_replacements($subject = NULL, $node = NULL) {
+  global $user;
+  $node_owner = user_load(array('uid' => $node->uid));
+
+  $variables = array(
+    '%site_name' => variable_get('site_name', 'Drupal'),
+    '%site_mail' => variable_get('site_mail', ini_get('sendmail_from')),
+    '%user_ref_name' => $subject->name,
+    '%user_ref_mail' => $subject->mail,
+    '%user_ref_uid' => $subject->uid,
+    '%node_owner_name' => $node_owner->name,
+    '%node_owner_mail' => $node_owner->mail,
+    '%node_owner_uid' => $node_owner->uid,
+    '%current_user_name' => $user->name,
+    '%current_user_mail' => $user->mail,
+    '%current_user_uid' => $user->uid,
+    '%node_url' => url('node/'. $node->nid, array('absolute' => TRUE)),
+    '%site_url' => url('', array('absolute' => TRUE)),
+    '%node_type' => $node->type,
+    '%title' => $node->title,
+    '%teaser' => strip_tags($node->teaser),
+    '%body' => strip_tags($node->body)
+  );
+
+  return $variables;
+}
+
+function _fieldactions_nodereference_token_replacements($referred_node = NULL, $referring_node = NULL) {
+  global $user; //creator of referring node
+  $referred_node_owner = user_load(array('uid' => $referred_node->uid)); //creator of referred node
+
+  $variables = array(
+    '%site_name' => variable_get('site_name', 'Drupal'),
+    '%site_mail' => variable_get('site_mail', ini_get('sendmail_from')),
+    '%referred_node_owner_name' => $referred_node_owner->name,
+    '%referred_node_owner_mail' => $referred_node_owner->mail,
+    '%referred_node_owner_uid' => $referred_node_owner->uid,
+    '%referring_node_owner_name' => $user->name,
+    '%referring_node_owner_mail' => $user->mail,
+    '%referring_node_owner_uid' => $user->uid,
+    '%referred_node_url' => url('node/'. $referred_node->nid, array('absolute' => TRUE)),
+    '%referring_node_url' => url('node/'. $referring_node->nid, array('absolute' => TRUE)),
+    '%site_url' => url('', array('absolute' => TRUE)),
+    '%referred_node_type' => $referred_node->type,
+    '%referring_node_type' => $referring_node->type,
+    '%referred_node_title' => $referred_node->title,
+    '%referring_node_title' => $referring_node->title,
+    '%referred_node_teaser' => strip_tags($referred_node->teaser),
+    '%referring_node_teaser' => strip_tags($referring_node->teaser),
+    '%referred_node_body' => strip_tags($referred_node->body),
+    '%referring_node_body' => strip_tags($referring_node->body)
+  );
+
+  return $variables;
+}

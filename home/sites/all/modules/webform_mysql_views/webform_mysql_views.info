@@ -1,0 +1,13 @@
+;$Id
+name = Webform MySQL Views
+description = Create flattened MySQL views from Webform submission data
+package = Webform
+core = 6.x
+dependencies[] = webform
+dependencies[] = elements
+; Information added by drupal.org packaging script on 2011-01-14
+version = "6.x-1.2"
+core = "6.x"
+project = "webform_mysql_views"
+datestamp = "1295034706"
+

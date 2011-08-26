@@ -1,0 +1,14 @@
+diff --git a/webform_viewreference.module b/webform_viewreference.module
+index 0cc818e..84035b4 100755
+--- a/webform_viewreference.module
++++ b/webform_viewreference.module
+@@ -136,8 +136,7 @@ function _webform_nodereference_potential_references_views($field, $string = '',
+ 
+     // Get arguments for the view.
+     if (!empty($field['advanced_view_args'])) {
+-      // TODO: Support Tokens using token.module ?
+-      $view_args = array_map('trim', explode(',', $field['advanced_view_args']));
++       $view_args = array_map('trim', explode(',',_webform_filter_values($field['advanced_view_args']) ));
+     }
+     else {
+       $view_args = array();

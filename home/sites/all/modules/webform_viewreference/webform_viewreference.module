@@ -1,0 +1,218 @@
+<?php
+
+/**
+ * @file
+ * 
+ */
+
+/**
+ * 
+ */
+function webform_viewreference_webform_component_info() {
+  
+  $components['viewselect'] = array(
+    'label' => t('Select View'),
+    'description' => t('Basic textfield type.'),
+    'features' => array(
+      // Add content to CSV downloads. Defaults to TRUE.
+      'csv' => TRUE,
+      // Show this field in e-mailed submissions. Defaults to TRUE.
+      'email' => TRUE,
+      // This field may be toggled as required or not. Defaults to TRUE.
+      'required' => TRUE,
+      // If this field can be used as a conditional SOURCE. All fields may
+      // always be displayed conditionally, regardless of this setting.
+      // Defaults to TRUE.
+      'conditonal' => TRUE,
+    ),
+    'file' => 'viewselect.inc',
+  );
+
+  return $components;
+}
+
+/**
+ * implementation hook_webform_validator_alter
+ * @param unknown_type $validators
+ */
+function webform_viewreference_webform_validator_alter(&$validators) {
+  $validators['select_min']['component_types'][] = 'viewselect';
+  $validators['select_max']['component_types'][] = 'viewselect';
+  $validators['select_exact']['component_types'][] = 'viewselect';
+}
+
+
+/**
+ * Fetch an array of all candidate referenced nodes.
+ *
+ * This info is used in various places (allowed values, autocomplete results,
+ * input validation...). Some of them only need the nids, others nid + titles,
+ * others yet nid + titles + rendered row (for display in widgets).
+ * The array we return contains all the potentially needed information, and lets
+ * consumers use the parts they actually need.
+ *
+ * @param $field
+ *   The field description.
+ * @param $string
+ *   Optional string to filter titles on (used by autocomplete).
+ * @param $match
+ *   Operator to match filtered name against, can be any of:
+ *   'contains', 'equals', 'starts_with'
+ * @param $ids
+ *   Optional node ids to lookup (the $string and $match arguments will be
+ *   ignored).
+ * @param $limit
+ *   If non-zero, limit the size of the result set.
+ *
+ * @return
+ *   An array of valid nodes in the form:
+ *   array(
+ *     nid => array(
+ *       'title' => The node title,
+ *       'rendered' => The text to display in widgets (can be HTML)
+ *     ),
+ *     ...
+ *   )
+ */
+function _webform_nodereference_potential_references($field, $string = '', $match = 'contains', $ids = array(), $limit = NULL) {
+  static $results = array();
+
+  // Create unique id for static cache.
+  $cid = $field['field_name'] .':'. $match .':'. ($string !== '' ? $string : implode('-', $ids)) .':'. $limit;
+  if (!isset($results[$cid])) {
+    $references = FALSE;
+    if (module_exists('views') && !empty($field['advanced_view']) && $field['advanced_view'] != '--') {
+      $references = _webform_nodereference_potential_references_views($field, $string, $match, $ids, $limit);
+    }
+
+    // Store the results.
+    $results[$cid] = !empty($references) ? $references : array();
+  }
+
+  return $results[$cid];
+}
+
+/**
+ * Helper function for _nodereference_potential_references():
+ * case of Views-defined referenceable nodes.
+ */
+function _webform_nodereference_potential_references_views($field, $string = '', $match = 'contains', $ids = array(), $limit = NULL) {
+  $view_name = $field['advanced_view'];
+
+  if ($view = views_get_view($view_name)) {
+    // We add a display, and let it derive from the 'default' display.
+    // TODO: We should let the user pick a display in the fields settings - sort of requires AHAH...
+    $display = $view->add_display('content_references');
+    $view->set_display($display);
+
+    // TODO from merlinofchaos on IRC : arguments using summary view can defeat the style setting.
+    // We might also need to check if there's an argument, and set *its* style_plugin as well.
+    $view->display_handler->set_option('style_plugin', 'content_php_array_autocomplete');
+    $view->display_handler->set_option('row_plugin', 'fields');
+    // Used in content_plugin_style_php_array::render(), to get
+    // the 'field' to be used as title.
+    $title_field = _webform_viewreference_base_table_variable($view->base_table, 'content_title_field');
+    $field_id = _webform_viewreference_base_table_variable($view->base_table, 'field_id');
+    $view->display_handler->set_option('content_title_field', $title_field);
+
+    // Additional options to let content_plugin_display_references::query()
+    // narrow the results.
+    $options = array(
+      'table' => $view->base_table,
+      'field_string' => $title_field,
+      'string' => $string,
+      'match' => $match,
+      'field_id' => $field_id,
+      'ids' => $ids,
+    );
+    $view->display_handler->set_option('content_options', $options);
+
+    // TODO : for consistency, a fair amount of what's below
+    // should be moved to content_plugin_display_references
+
+    // Limit result set size.
+    $limit = isset($limit) ? $limit : 0;
+    if(method_exists($view, 'set_items_per_page')){
+        $view->set_items_per_page($limit);
+    }
+    else {
+       $view->display_handler->set_option('items_per_page', $limit);
+    }
+
+    // Get arguments for the view.
+    if (!empty($field['advanced_view_args'])) {
+       $view_args = array_map('trim', explode(',',_webform_filter_values($field['advanced_view_args']) ));
+    }
+    else {
+      $view_args = array();
+    }
+
+    // We do need title field, so add it if not present (unlikely, but...)
+    $fields = $view->get_items('field', $display);
+
+    if (!isset($fields[$title_field])) {
+      $view->add_item($display, 'field', $view->base_table, $title_field);
+    }
+
+    // If not set, make all fields inline and define a separator.
+    $options = $view->display_handler->get_option('row_options');
+    if (empty($options['inline'])) {
+      $options['inline'] = drupal_map_assoc(array_keys($view->get_items('field', $display)));
+    }
+    if (empty($options['separator'])) {
+      $options['separator'] = '-';
+    }
+    $view->display_handler->set_option('row_options', $options);
+
+    // Make sure the query is not cached
+    $view->is_cacheable = FALSE;
+
+    // Get the results.
+    $result = $view->execute_display($display, $view_args);
+  }
+  else {
+    $result = FALSE;
+  }
+  
+  return $result;
+}
+
+/**
+ * Shorthand function for getting basetable
+ * @param unknown_type $view_name
+ */
+function _webform_viewreference_get_base_table($view_name) {
+  $view = views_get_view($view_name); 
+  return $view->base_table; 
+}
+
+/**
+ * 
+ * @param $basetable
+ * @param $variable
+ */
+function _webform_viewreference_base_table_variable($basetable, $variable) {
+  // Node
+  $data['node'] = array(
+    'content_title_field' => 'title',
+    'field_id' => 'nid',
+  ); 
+  
+  // Term
+  $data['term_data'] = array(
+    'content_title_field' => 'name',
+    'field_id' => 'tid',
+  );
+  
+  // Users
+  $data['users'] = array(
+    'content_title_field' => 'name',
+    'field_id' => 'uid',
+  );
+
+  if(isset($data[$basetable][$variable])) {
+     return $data[$basetable][$variable]; 
+  } else {
+    return $data['node'][$variable]; 
+  }
+}

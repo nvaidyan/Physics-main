@@ -1,0 +1,20 @@
+<html>
+<head>
+<script type="text/javascript">
+function popup()
+{
+ 	try
+ 	{
+ 		if (!mywindow.closed)
+		{
+			mywindow.close();
+		}
+	}
+	catch (exception) {}
+	mywindow = window.open('seminars.html','Newscreen','width=1366,height=760,fullscreen=1,scrollbars=0,toolbar=0');
+}
+</script>
+</head>
+<body onload="javascript: popup();">
+</body>
+</html>

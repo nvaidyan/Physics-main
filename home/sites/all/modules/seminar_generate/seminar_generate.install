@@ -1,0 +1,23 @@
+<?php
+// $Id: devel.install,v 1.24.2.10 2010/09/11 22:27:32 salvis Exp $
+/**
+ * @file
+ *   Install file for devel module.
+ */
+
+/**
+ * Implementation of hook_schema().
+ */
+function seminar_generate_schema() { }
+
+ /**
+ * Implementation of hook_install()
+ */
+function seminar_generate_install() { }
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function seminar_generate_uninstall() { }
+
+?>

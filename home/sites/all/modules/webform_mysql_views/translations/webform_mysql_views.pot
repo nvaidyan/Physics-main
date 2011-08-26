@@ -1,0 +1,150 @@
+# $Id: webform_mysql_views.pot,v 1.1.2.1 2011/01/14 19:24:56 usonian Exp $
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  webform_mysql_views.module,v 1.1.2.4 2011/01/14 16:31:07 usonian
+#  webform_mysql_views.module,v 1.1.2.8 2011/01/14 19:18:52 usonian
+#  webform_mysql_views.info: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2011-01-14 14:23-0500\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: webform_mysql_views.data.module:151 webform_mysql_views.module:151
+msgid "This module builds flattened, read-only MySQL views of webform submission data. These views may be useful when you need to  access this data from an external application in an automated fashion without exporting, importing, or the use of a web-based API."
+msgstr ""
+
+#: webform_mysql_views.data.module:152 webform_mysql_views.module:152
+msgid "To manage MySQL views for your webforms, log in as an administrator and go to the <code>Administer &gt; Content Management &gt; Web Forms</code> page and click on the <code>MySQL Views</code> tab."
+msgstr ""
+
+#: webform_mysql_views.data.module:153 webform_mysql_views.module:153
+msgid "<h3 id=\"requirements\">Requirements</h3><ul><li>Your Drupal database must be using the MySQL backend.</li><li>Your MySQL server must be version 5.0 or later</li><li>The MySQL user specified in your Drupal <code>settings.php</code> file must have permission to create views.</li><li>Webform Module</li><li>Elements Module</li></ul>"
+msgstr ""
+
+#: webform_mysql_views.data.module:155 webform_mysql_views.module:155
+msgid "This page lets you add or remove MySQL views containing submission data for your Webforms."
+msgstr ""
+
+#: webform_mysql_views.data.module:156 webform_mysql_views.module:156
+msgid "To add a MySQL view for a Webform, check the box next to its name and submit the form"
+msgstr ""
+
+#: webform_mysql_views.data.module:157 webform_mysql_views.module:157
+msgid "To remove a MySQL view for a Webform, uncheck the box next to its name and submit the form."
+msgstr ""
+
+#: webform_mysql_views.data.module:158 webform_mysql_views.module:158
+msgid "Note: <a href=\"http://dev.mysql.com/tech-resources/articles/mysql-views.html\">MySQL Views</a> should not be confused with the <a href=\"http://drupal.org/project/views\"> Drupal Views module</a>."
+msgstr ""
+
+#: webform_mysql_views.data.module:176 webform_mysql_views.module:176
+msgid "This module will not work on this site."
+msgstr ""
+
+#: webform_mysql_views.data.module:177 webform_mysql_views.module:177
+msgid "Details"
+msgstr ""
+
+#: webform_mysql_views.data.module:207 webform_mysql_views.module:207
+msgid "-"
+msgstr ""
+
+#: webform_mysql_views.data.module:221 webform_mysql_views.module:221
+msgid "Webform Name"
+msgstr ""
+
+#: webform_mysql_views.data.module:222 webform_mysql_views.module:222
+msgid "View Name"
+msgstr ""
+
+#: webform_mysql_views.data.module:225
+msgid "Select the webform(s) you would like to generate MySQL views for."
+msgstr ""
+
+#: webform_mysql_views.data.module:237 webform_mysql_views.module:237
+msgid "Submit"
+msgstr ""
+
+#: webform_mysql_views.data.module:308 webform_mysql_views.module:307
+msgid "Data module has adopted view @webform_mysql_view."
+msgstr ""
+
+#: webform_mysql_views.data.module:311 webform_mysql_views.module:310
+msgid "Data module was unable to adopt view @webform_mysql_view."
+msgstr ""
+
+#: webform_mysql_views.data.module:320 webform_mysql_views.module:319
+msgid "Data module has dropped view @webform_mysql_view."
+msgstr ""
+
+#: webform_mysql_views.data.module:323 webform_mysql_views.module:322
+msgid "Data module was unable to drop view @webform_mysql_view."
+msgstr ""
+
+#: webform_mysql_views.data.module:413 webform_mysql_views.module:418
+msgid "This module is only compatible with the MySQL backend."
+msgstr ""
+
+#: webform_mysql_views.data.module:419 webform_mysql_views.module:424
+msgid "This module requires MySQL server version 5.0 or later.  Your server is running version @version."
+msgstr ""
+
+#: webform_mysql_views.data.module:456 webform_mysql_views.module:461
+msgid "Data table for webform_mysql_view @dbview_name"
+msgstr ""
+
+#: webform_mysql_views.data.module:274 webform_mysql_views.module:274
+msgid "Dropped 1 view."
+msgid_plural "Dropped @count views."
+msgstr[0] ""
+msgstr[1] ""
+
+#: webform_mysql_views.data.module:289 webform_mysql_views.module:289
+msgid "Created 1 view."
+msgid_plural "Created @count views."
+msgstr[0] ""
+msgstr[1] ""
+
+#: webform_mysql_views.module:225
+msgid "Select the webform(s) you would like to generate MySQL views for. To drop a webform's MySQL view, uncheck its box and click 'Submit'."
+msgstr ""
+
+#: webform_mysql_views.module:20
+msgid "Webforms"
+msgstr ""
+
+#: webform_mysql_views.module:24
+msgid "View and edit all the available webforms on your site."
+msgstr ""
+
+#: webform_mysql_views.module:33
+msgid "MySQL Views"
+msgstr ""
+
+#: webform_mysql_views.module:38
+msgid "Create MySQL views of submitted Webform data."
+msgstr ""
+
+#: webform_mysql_views.info:0
+msgid "Webform MySQL Views"
+msgstr ""
+
+#: webform_mysql_views.info:0
+msgid "Create flattened MySQL views from Webform submission data"
+msgstr ""
+
+#: webform_mysql_views.info:0
+msgid "Webform"
+msgstr ""
+
