@@ -118,7 +118,7 @@
 			}
 			print "<a href='$output' target='_blank' title='To book, please contact the seminar coordinator' style='font-weight:bold'>View this speaker's meeting availability.</a>";
 		}*/
-		$permittedRoles = array('Faculty', 'administrator');
+		$permittedRoles = array('Faculty', 'administrator', 'Seminar Coordinator');
 		$check = array_intersect($permittedRoles, array_values($user->roles));
 		if(!empty($check)) {
 				print "<h3>Booked meetings with the seminar speaker are shown below</h3>";
